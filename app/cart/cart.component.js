@@ -7,7 +7,7 @@ angular.module('cart').component('cart', {
         function CartController(CartList, $scope, $rootScope) {
             var self = this;
             this.count = CartList.count;
-            var myListener = $rootScope.$on('renewCount', function (e) {
+            var myListener = $rootScope.$on('renewCount', function () {
                 self.count = CartList.count;
                 console.log(CartList.list);
             });
