@@ -1,0 +1,15 @@
+<h1 ng-hide="$ctrl.empty" class="well well-lg">Your cart:</h1>
+<h1 ng-show="$ctrl.empty" class="well well-lg">Your cart is empty</h1>
+<table class="table cart-table">
+    <tr ng-repeat="item in $ctrl.countElemebts()" ng-hide="item.count==0">
+        <td><a href="#!/phones/{{item.id}}"><img ng-src="{{ item.imageUrl }}" class="cart-img"></a></td>
+        <td>{{ item.snippet }}</td>
+        <td class="count">
+            <span class="badge">{{ item.count }}</span>
+            <div>
+                <span class="glyphicon glyphicon-plus" ng-click="$ctrl.plus(item)"></span>
+                <span class="glyphicon glyphicon-minus" ng-click="$ctrl.minus(item)"></span>
+            </div>
+        </td>
+    </tr>
+</table>
