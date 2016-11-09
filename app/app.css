@@ -127,4 +127,35 @@ a.thumb img, td.count  {
 .thumbnail.phone-list-item {
   overflow: hidden;
 }
-
+.button-wrapper {
+  text-align: center;
+}
+logout div {
+  text-align: right;
+}
+.loginWrapper {
+  position: fixed;
+  height: 100%;
+  display: table;
+  width: 100%
+}
+.loginWrapper .alert-danger, login {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 1;
+}
+.loginInner {
+  display: table-cell;
+  vertical-align: middle;
+}
+login {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom :0;
+  z-index: 0;
+  background: url("img/bg.jpg") no-repeat;
+  background-size: cover;
+}
