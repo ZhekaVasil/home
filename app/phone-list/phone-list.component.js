@@ -5,9 +5,10 @@ angular.
   module('phoneList').
   component('phoneList', {
     templateUrl: 'phone-list/phone-list.template.html',
-    controller: ['Phone','CartList','$rootScope','checkCookies',
-      function PhoneListController(Phone, CartList, $rootScope, checkCookies) {
+    controller: ['Phone','CartList','$rootScope','checkCookies','$scope',
+      function PhoneListController(Phone, CartList, $rootScope, checkCookies, $scope) {
       var self = this;
+        var x = this.query;
         this.query = '';
         checkCookies.cookies();
         this.phones = Phone.query();
@@ -19,7 +20,15 @@ angular.
               return item.name.toLowerCase().indexOf(self.query.toLowerCase()) >=0  ;
             });
           }
-          console.log(filtredObj);
+          if(self.orderProp == 'name'){
+            filtredObj.sort(function(a,b){
+              return (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : -1;
+            })
+          } else {
+            filtredObj.sort(function(a,b){
+              return (a.age > b.age) ? 1 : -1;
+            })
+          }
           CartList.incrementCount();
           CartList.addInObj(index, filtredObj);
           $rootScope.$emit('renewCount','');
