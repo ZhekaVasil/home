@@ -6,8 +6,7 @@ angular.module('logout').component('logout', {
     controller: ['$cookies','$location','$window',
         function CartController($cookies, $location, $window) {
           this.logOut = function () {
-              $cookies.remove('login');
-              $window.location.href = '#!/login'
+              $location.url('/login');
           }
         }
     ]
